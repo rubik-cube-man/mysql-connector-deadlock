@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  mysql:
+    image: percona:8.0
+    platform: linux/x86_64
+    container_name: mysql-deadlock
+    ports:
+      - '3306:3306'
+    volumes:
+      # Auto DB setup script
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 250M
