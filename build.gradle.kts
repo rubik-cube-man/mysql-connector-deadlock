@@ -11,4 +11,5 @@ repositories {
 
 dependencies {
     implementation("com.mysql:mysql-connector-j:8.3.0")
+    implementation("com.zaxxer:HikariCP:5.1.0")
 }
